@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package = "github.com/AntonCkya/grpcats";
+
+package grpcats;
+
+service Cats {
+    rpc GetCat (CatRequest) returns (stream CatResponse);
+}
+
+message CatRequest {
+    string says = 1;
+}
+
+message CatResponse {
+    bytes cat = 1;
+}
